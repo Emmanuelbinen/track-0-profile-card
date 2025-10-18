@@ -1,0 +1,253 @@
+/* Our Page Primary Colors will be Red, White, Gray and Black*/
+
+:root {
+    --primary-red: #dc2626;
+    --primary-white: #ffffff;
+    --dark-red: #991b1b;
+    --light-red: #fecaca;
+    --accent-gray: #374151;
+    --light-gray: #f3f4f6;
+    --medium-gray: #6b7280;
+    --border-gray: #e5e7eb;
+    --black: #1f2937;
+    --focus-color: #dc2626;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Global Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, var(--light-gray) 0%, var(--border-gray) 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    line-height: 1.6;
+    color: var(--black);
+}   
+
+.container {
+    width: 100%;
+    max-width: 900px;
+}
+
+.profile-card {
+    background: var(--primary-white);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px var(--shadow);
+    overflow: hidden;
+    border: 3px solid var(--primary-red);
+}
+
+.profile-header {
+    background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+    color: var(--primary-white);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+}
+
+.avatar-container {
+    position: relative;
+}
+
+.avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 5px solid var(--primary-white);
+    object-fit: cover;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.header-content {
+    flex: 1;
+}
+
+.user-name {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
+}
+
+.user-bio {
+    font-size: 1rem;
+    line-height: 1.7;
+    opacity: 0.95;
+    max-width: 600px;
+    margin: 0 auto 1rem;
+}
+
+.user-time {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-family: 'Courier New', monospace;
+    backdrop-filter: blur(10px);
+}
+
+.social-links {
+    background: var(--light-gray);
+    border-top: 2px solid var(--primary-red);
+    border-bottom: 2px solid var(--primary-red);
+}
+
+.social-links ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 1rem;
+}
+
+.social-links li {
+    flex: 1;
+    min-width: 120px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--primary-white);
+    color: var(--accent-gray);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    font-size: 0.95rem;
+}
+
+.social-links a:hover {
+    background: var(--primary-red);
+    color: var(--primary-white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+.social-links a:focus {
+    outline: none;
+    border-color: var(--focus-color);
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.3);
+}
+
+.card-content {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+section h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-red);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+section h3::before {
+    content: '';
+    width: 4px;
+    height: 24px;
+    background: var(--primary-red);
+    border-radius: 2px;
+}
+
+section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+section ul li {
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    background: var(--light-gray);
+    border-left: 4px solid var(--primary-red);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+section ul li:hover {
+    background: var(--light-red);
+    transform: translateX(4px);
+}
+
+/* Responsive Design */
+@media (min-width: 640px) {
+    .profile-header {
+        flex-direction: row;
+        text-align: left;
+        gap: 2rem;
+    }
+
+    .header-content {
+        text-align: left;
+    }
+
+    .user-bio {
+        margin: 0 0 1rem 0;
+    }
+
+    .avatar {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+@media (min-width: 768px) {
+    .card-content {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .social-links ul {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 639px) {
+    .profile-header {
+        padding: 1.5rem;
+    }
+
+    .user-name {
+        font-size: 1.5rem;
+    }
+
+    .user-bio {
+        font-size: 0.95rem;
+    }
+
+    .card-content {
+        padding: 1.5rem;
+    }
+
+    .social-links a {
+        padding: 0.65rem 1rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Focus styles for keyboard navigation */
+*:focus-visible {
+    outline: 3px solid var(--focus-color);
+    outline-offset: 2px;
+}
+
+/* Smooth transitions */
+* {
+    transition: outline 0.2s ease;
+}
