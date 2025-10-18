@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!--This is the main HTML file for a simple "Profile Card" component.-->
+<html lang="en">
+<head>
+    <!-- The character encoding tells the browser how to read the text in this file -->
+    <meta charset="UTF-8">
+    <!-- Makes the page responsive on mobile devices by setting the viewport width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- The title appears in the browser tab -->
+    <title>Profile Card</title>
+    <!-- Link to an external CSS file. This file controls how elements look (colors, layout). -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- main contains the primary content of the page -->
+    <main class="container">
+        <!-- article groups together the profile card. Using semantic tags helps accessibility. -->
+        <article class="profile-card" data-testid="test-profile-card">
+            <!-- header usually contains the title or top information for a section -->
+            <header class="profile-header">
+                <!-- figure is used to contain images (like a profile picture) -->
+                <figure class="avatar-container">
+                    <!--
+                        img displays an image. Important attributes:
+                        - src: where the picture comes from
+                        - alt: text read by screen readers if the image can't be seen
+                        - class: used by CSS to style the image
+                    -->
+                    <img 
+                        src="https://i.pravatar.cc/200?img=12" 
+                        alt="Profile picture of Sarah Chen"
+                        class="avatar"
+                        data-testid="test-user-avatar"
+                    >
+                </figure>
+                
+                <!-- header-content holds the person's name, short bio, and time -->
+                <div class="header-content">
+                    <!-- h2 is a heading. Headings help organize content and are good for accessibility. -->
+                    <h2 class="user-name" data-testid="test-user-name">Emmanuel Binen</h2>
+                    <!-- p is a paragraph for longer text like a bio -->
+                    <p class="user-bio" data-testid="test-user-bio">
+                        Full-stack developer and UI/UX enthusiast passionate about creating accessible 
+                        and intuitive web experiences. Coffee lover, open-source contributor, and lifelong learner.
+                    </p>
+                    <!--
+                        time element represents a time or date.
+                        aria-label helps screen readers understand the purpose of this element.
+                    -->
+                    <time class="user-time" data-testid="test-user-time" aria-label="Current timestamp in milliseconds"></time>
+                </div>
+            </header>
+
+            <!--
+                nav contains navigation links. Here it lists social profiles.
+                aria-label gives a human-readable name for assistive technologies.
+            -->
+            <nav class="social-links" aria-label="Social media links">
+                <ul data-testid="test-user-social-links">
+                    <!-- Each list item contains a link (<a>) to an external profile -->
+                    <li>
+                        <a 
+                            href="https://twitter.com/emmanuelbinen" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            data-testid="test-user-social-twitter"
+                            aria-label="Visit Sarah's Twitter profile"
+                        >
+                            <!-- svg is an icon (vector image) embedded directly in HTML -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                            Twitter
+                        </a>
+                    </li>
+                    <li>
+                        <a 
+                            href="https://github.com/Emmanuelbinen" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            data-testid="test-user-social-github"
+                            aria-label="Visit Sarah's GitHub profile"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            GitHub
+                        </a>
+                    </li>
+                    <li>
+                        <a 
+                            href="https://linkedin.com/in/emmanuelbinen" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            data-testid="test-user-social-linkedin"
+                            aria-label="Visit Sarah's LinkedIn profile"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                            LinkedIn
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- card-content holds other sections like hobbies and dislikes -->
+            <div class="card-content">
+                <section class="hobbies-section">
+                    <!-- h3 is a smaller heading than h2 -->
+                    <h3>Hobbies & Interests</h3>
+                    <ul data-testid="test-user-hobbies">
+                        <li>Coding personal projects</li>
+                        <li>Photography & digital art</li>
+                        <li>Hiking and outdoor adventures</li>
+                        <li>Reading Books</li>
+                        <li>Playing piano</li>
+                    </ul>
+                </section>
+
+                <section class="dislikes-section">
+                    <h3>Pet Peeves</h3>
+                    <ul data-testid="test-user-dislikes">
+                        <li>Poorly documented code</li>
+                        <li>Unnecessary meetings</li>
+                        <li>Inaccessible websites</li>
+                        <li>Inconsistent design</li>
+                    </ul>
+                </section>
+            </div>
+        </article>
+    </main>
+
+    <!-- Link to a JavaScript file. This file can add behavior (like updating the time element). -->
+    <script src="script.js"></script>
+</body>
+</html>
