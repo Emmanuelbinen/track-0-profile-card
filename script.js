@@ -63,3 +63,40 @@ function initAvatarUpload() {
 
 // Initialize avatar upload functionality
 initAvatarUpload();
+
+
+// Announce time updates to screen readers (accessibility)
+function announceTimeUpdate() {
+    const timeElement = document.querySelector('[data-testid="test-user-time"]');
+    if (timeElement) {
+        const announcement = document.createElement('div');
+        announcement.setAttribute('role', 'status');
+        announcement.setAttribute('aria-live', 'polite');
+        announcement.className = 'sr-only';
+        announcement.textContent = `Time updated to ${timeElement.textContent}`;
+        document.body.appendChild(announcement);
+        
+        setTimeout(() => {
+            document.body.removeChild(announcement);
+        }, 1000);
+    }
+}
+
+// Add screen reader only class for announcements
+const style = document.createElement('style');
+style.textContent = `
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+    }
+`;
+document.head.appendChild(style);
+
+console.log('Profile card initialized successfully!');
